@@ -181,6 +181,7 @@ nfqws takes the following parameters:
  --dpi-desync-fake-wireguard=<filename>|0xHEX   ; file containing fake wireguard handshake initiation
  --dpi-desync-fake-dht=<filename>|0xHEX         ; file containing fake DHT (d1..e)
  --dpi-desync-fake-discord=<filename>|0xHEX     ; file containing fake Discord voice connection initiation packet (IP Discovery)
+ --dpi-desync-fake-stun=<filename>|0xHEX        ; file containing fake STUN message
  --dpi-desync-fake-unknown-udp=<filename>|0xHEX ; file containing unknown udp protocol fake payload
  --dpi-desync-udplen-increment=<int>            ; increase or decrease udp packet length by N bytes (default 2). negative values decrease length.
  --dpi-desync-udplen-pattern=<filename>|0xHEX   ; udp tail fill pattern
@@ -475,7 +476,7 @@ This option can resist DPIs that track outgoing UDP packet sizes.
 Requires that application protocol does not depend on udp payload size.
 
 QUIC initial packets are recognized. Decryption and hostname extraction is supported so `--hostlist` parameter will work.
-Wireguard handshake initiation, DHT and [Discord Voice IP Discovery](https://discord.com/developers/docs/topics/voice-connections#ip-discovery) packets are also recognized.
+Wireguard handshake initiation, DHT, STUN and [Discord Voice IP Discovery](https://discord.com/developers/docs/topics/voice-connections#ip-discovery) packets are also recognized.
 For other protocols desync use `--dpi-desync-any-protocol`.
 
 Conntrack supports udp. `--dpi-desync-cutoff` will work. UDP conntrack timeout can be set in the 4th parameter of `--ctrack-timeouts`.
